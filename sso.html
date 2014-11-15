@@ -1,0 +1,40 @@
+<head>
+  <title>EVE Online SSO Test Page</title>
+</head>
+
+<body>
+  <div class="navbar navbar-default" role="navigation">
+    <div class="navbar-header">
+        <a class="navbar-brand" href="#">EVE SSO Test</a>
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+    </div>
+    <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+            <li><a href="https://github.com/zweizeichen/accounts-eve">GitHub</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            {{#if currentUser}}
+              <img src="https://image.eveonline.com/Character/{{ currentUser.services.eve.character.id }}_32.jpg" class="img-circle" alt="{{ currentUser.profile.name }}" style="float: right; margin-top: 10px; margin-right: 10px;">
+            {{/if}}
+            {{> loginButtons }}
+        </ul>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row-fluid">
+      <div class="col-lg-12">
+        <h1>Welcome to the accounts-eve test page!</h1>
+        {{#if currentUser}}
+          <p>Welcome, <i>{{ currentUser.profile.name }}</i>!</p>
+        {{else}}
+          <p><i>Try logging in via EVE SSO!</i></p>
+        {{/if}}
+      </div>
+    </div>
+  </div>
+</body>
